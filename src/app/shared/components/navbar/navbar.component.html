@@ -1,0 +1,86 @@
+<nav class="navbar p-3 bg-primary text-white">
+  <div class="container">
+    <div class="flex align-items-center justify-content-between">
+      <!-- Logo and Brand -->
+      <div class="flex align-items-center">
+        <a routerLink="/" class="text-white text-xl font-bold no-underline">
+          <i class="pi pi-heart mr-2"></i>
+          Aadhar Sanstha
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex align-items-center gap-4">
+        <a routerLink="/programs" class="text-white no-underline hover:text-blue-200">
+          {{ 'NAV.PROGRAMS' | translate }}
+        </a>
+        <a routerLink="/schemes" class="text-white no-underline hover:text-blue-200">
+          {{ 'NAV.SCHEMES' | translate }}
+        </a>
+        <a routerLink="/pwd/register" class="text-white no-underline hover:text-blue-200">
+          {{ 'NAV.PWD_REGISTRATION' | translate }}
+        </a>
+        <a routerLink="/admin" class="text-white no-underline hover:text-blue-200" *ngIf="(currentUser$ | async)">
+          {{ 'NAV.ADMIN' | translate }}
+        </a>
+      </div>
+
+      <!-- Right Side Controls -->
+      <div class="flex align-items-center gap-3">
+        <!-- Accessibility Controls -->
+        <div class="flex align-items-center gap-2">
+          <p-button 
+            icon="pi pi-plus" 
+            size="small" 
+            severity="secondary"
+            (onClick)="increaseFontSize()"
+            [attr.aria-label]="'Increase font size'">
+          </p-button>
+          <p-button 
+            icon="pi pi-minus" 
+            size="small" 
+            severity="secondary"
+            (onClick)="decreaseFontSize()"
+            [attr.aria-label]="'Decrease font size'">
+          </p-button>
+          <p-button 
+            icon="pi pi-adjust" 
+            size="small" 
+            severity="secondary"
+            (onClick)="toggleHighContrast()"
+            [attr.aria-label]="'Toggle high contrast'">
+          </p-button>
+        </div>
+
+        <!-- Language Switcher -->
+        <p-dropdown 
+          [options]="languages" 
+          [(ngModel)]="selectedLanguage"
+          (onChange)="onLanguageChange($event.value)"
+          optionLabel="label"
+          placeholder="Language"
+          styleClass="w-8rem">
+        </p-dropdown>
+
+        <!-- User Menu -->
+                  <div *ngIf="currentUser$ | async as user; else loginButton">
+            <p-button 
+              type="button" 
+              styleClass="p-button-text text-white"
+              (click)="signOut()">
+              <i class="pi pi-user mr-2"></i>
+              {{ user.email }}
+            </p-button>
+          </div>
+
+        <ng-template #loginButton>
+          <p-button 
+            routerLink="/auth/login" 
+            label="{{ 'NAV.LOGIN' | translate }}"
+            styleClass="p-button-outlined">
+          </p-button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</nav> 

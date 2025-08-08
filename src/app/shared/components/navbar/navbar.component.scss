@@ -1,0 +1,38 @@
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  a {
+    transition: color 0.3s ease;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .p-dropdown {
+    .p-dropdown-trigger {
+      color: white;
+    }
+  }
+  
+  .p-button.p-button-text {
+    color: white;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    .hidden {
+      display: none;
+    }
+  }
+} 

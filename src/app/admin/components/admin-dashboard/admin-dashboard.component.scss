@@ -1,0 +1,86 @@
+.admin-dashboard {
+  padding: 2rem 0;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      margin: 0;
+      color: var(--primary-color);
+    }
+  }
+
+  .filters {
+    background: var(--surface-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  :host ::ng-deep {
+    .p-datatable {
+      .p-datatable-header {
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-bottom: none;
+      }
+
+      .p-datatable-thead > tr > th {
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        font-weight: 600;
+        color: var(--text-color);
+      }
+
+      .p-datatable-tbody > tr > td {
+        border: 1px solid var(--surface-border);
+        padding: 1rem;
+      }
+
+      .p-datatable-tbody > tr:nth-child(even) {
+        background: var(--surface-ground);
+      }
+
+      .p-datatable-tbody > tr:hover {
+        background: var(--surface-hover);
+      }
+    }
+
+    .p-dialog {
+      .p-dialog-content {
+        padding: 2rem;
+      }
+    }
+
+    .field {
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+
+      input, p-dropdown {
+        width: 100%;
+      }
+    }
+  }
+} 

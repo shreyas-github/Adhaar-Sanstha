@@ -1,0 +1,102 @@
+{
+  "NAV": {
+    "PROGRAMS": "कार्यक्रम",
+    "SCHEMES": "योजना",
+    "PWD_REGISTRATION": "दिव्यांग नोंदणी",
+    "ADMIN": "प्रशासन",
+    "LOGIN": "लॉगिन"
+  },
+  "HOME": {
+    "HERO_TITLE": "दिव्यांग व्यक्तींना सक्षम करणे",
+    "HERO_SUBTITLE": "उत्तम उद्यासाठी व्यापक समर्थन, कौशल्य विकास आणि समावेशी कार्यक्रम",
+    "GET_STARTED": "सुरु करा",
+    "LEARN_MORE": "अधिक जाणून घ्या"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "परत येण्याबद्दल स्वागत आहे",
+    "LOGIN_SUBTITLE": "तुमच्या खात्यात साइन इन करा",
+    "REGISTER_TITLE": "खाते तयार करा",
+    "REGISTER_SUBTITLE": "आजच आधार संस्थेत सामील व्हा",
+    "EMAIL": "ईमेल",
+    "PASSWORD": "पासवर्ड",
+    "CONFIRM_PASSWORD": "पासवर्डची पुष्टी करा",
+    "SIGN_IN": "साइन इन",
+    "CREATE_ACCOUNT": "खाते तयार करा",
+    "FORGOT_PASSWORD": "पासवर्ड विसरलात?",
+    "NO_ACCOUNT": "खाते नाही?",
+    "HAVE_ACCOUNT": "आधीपासून खाते आहे?",
+    "SIGN_UP_HERE": "येथे साइन अप करा",
+    "SIGN_IN_HERE": "येथे साइन इन करा"
+  },
+  "PWD": {
+    "REGISTRATION_TITLE": "दिव्यांग नोंदणी",
+    "PERSONAL_INFO": "वैयक्तिक माहिती",
+    "DISABILITY_INFO": "दिव्यांगता माहिती",
+    "EDUCATION": "शिक्षण",
+    "SKILLS_ADDRESS": "कौशल्ये आणि पत्ता",
+    "DOCUMENTS": "दस्तऐवज",
+    "NAME": "नाव",
+    "PHONE": "फोन",
+    "DATE_OF_BIRTH": "जन्म तारीख",
+    "GENDER": "लिंग",
+    "DISABILITY_TYPE": "दिव्यांगता प्रकार",
+    "SEVERITY": "गंभीरता",
+    "DIAGNOSIS_DATE": "निदान तारीख",
+    "EDUCATION_LEVEL": "शिक्षण पातळी",
+    "INSTITUTION": "संस्था",
+    "YEAR_COMPLETED": "पूर्ण वर्ष",
+    "SKILLS": "कौशल्ये",
+    "STREET": "रस्ता",
+    "CITY": "शहर",
+    "STATE": "राज्य",
+    "PINCODE": "पिन कोड",
+    "GOVERNMENT_ID": "सरकारी आयडी",
+    "NEXT": "पुढे",
+    "PREVIOUS": "मागे",
+    "SUBMIT": "नोंदणी सबमिट करा"
+  },
+  "ADMIN": {
+    "DASHBOARD_TITLE": "प्रशासन डॅशबोर्ड",
+    "REGISTRATIONS": "नोंदण्या",
+    "FILTERS": "फिल्टर्स",
+    "DISABILITY_FILTER": "दिव्यांगता प्रकार",
+    "LOCATION_FILTER": "स्थान",
+    "EXPORT_CSV": "CSV एक्सपोर्ट करा",
+    "EDIT": "संपादित करा",
+    "DELETE": "हटवा",
+    "SAVE": "जतन करा",
+    "CANCEL": "रद्द करा"
+  },
+  "PROGRAMS": {
+    "TITLE": "आमचे कार्यक्रम",
+    "SUBTITLE": "दिव्यांग व्यक्तींसाठी व्यापक समर्थन आणि विकास कार्यक्रम"
+  },
+  "SCHEMES": {
+    "TITLE": "सरकारी योजना",
+    "SUBTITLE": "दिव्यांग व्यक्तींसाठी उपलब्ध सरकारी योजना आणि समर्थन कार्यक्रम",
+    "APPLY_NOW": "आता अर्ज करा",
+    "ELIGIBILITY": "पात्रता",
+    "BENEFITS": "फायदे"
+  },
+  "COMMON": {
+    "LOADING": "लोड होत आहे...",
+    "SUCCESS": "यशस्वी",
+    "ERROR": "त्रुटी",
+    "WARNING": "चेतावणी",
+    "INFO": "माहिती",
+    "CONFIRM": "पुष्टी करा",
+    "YES": "होय",
+    "NO": "नाही",
+    "CLOSE": "बंद करा",
+    "SAVE": "जतन करा",
+    "CANCEL": "रद्द करा",
+    "DELETE": "हटवा",
+    "EDIT": "संपादित करा",
+    "VIEW": "पहा",
+    "SEARCH": "शोधा",
+    "FILTER": "फिल्टर",
+    "CLEAR": "साफ करा",
+    "SUBMIT": "सबमिट करा",
+    "RESET": "रीसेट"
+  }
+} 

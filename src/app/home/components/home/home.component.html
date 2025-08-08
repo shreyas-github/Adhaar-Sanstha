@@ -1,0 +1,75 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content text-center">
+        <h1 class="hero-title">{{ 'HOME.HERO_TITLE' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
+        <div class="hero-buttons">
+          <p-button 
+            routerLink="/pwd/register" 
+            label="{{ 'HOME.GET_STARTED' | translate }}"
+            size="large">
+          </p-button>
+          <p-button 
+            routerLink="/programs" 
+            label="{{ 'HOME.LEARN_MORE' | translate }}"
+            styleClass="p-button-outlined"
+            size="large">
+          </p-button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title text-center">Our Services</h2>
+      <div class="grid">
+        <div class="col-12 md:col-6 lg:col-3" *ngFor="let feature of features">
+          <p-card styleClass="feature-card">
+            <ng-template pTemplate="header">
+              <div class="feature-icon">
+                <i [class]="feature.icon"></i>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="content">
+              <h3 class="feature-title">{{ feature.title }}</h3>
+              <p class="feature-description">{{ feature.description }}</p>
+            </ng-template>
+          </p-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="grid">
+        <div class="col-12 md:col-3" *ngFor="let stat of stats">
+          <div class="stat-item text-center">
+            <div class="stat-number">{{ stat.number }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content text-center">
+        <h2>Ready to Get Started?</h2>
+        <p>Join our community and access comprehensive support for persons with disabilities.</p>
+        <p-button 
+          routerLink="/pwd/register" 
+          label="Register Now"
+          size="large">
+        </p-button>
+      </div>
+    </div>
+  </section>
+</div> 

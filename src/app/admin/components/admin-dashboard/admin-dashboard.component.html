@@ -1,0 +1,169 @@
+<div class="admin-dashboard">
+  <div class="container">
+    <div class="header">
+      <h1>PWD Registration Management</h1>
+      <p-button 
+        label="Export CSV" 
+        icon="pi pi-download" 
+        (click)="exportToCSV()"
+        [disabled]="filteredRegistrations.length === 0">
+      </p-button>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters mb-4">
+      <div class="grid">
+        <div class="col-12 md:col-4">
+          <label for="disabilityFilter">Filter by Disability Type:</label>
+          <p-dropdown 
+            id="disabilityFilter"
+            [options]="disabilityTypes" 
+            [(ngModel)]="selectedDisability"
+            placeholder="All Disabilities"
+            (onChange)="applyFilters()">
+          </p-dropdown>
+        </div>
+        <div class="col-12 md:col-4">
+          <label for="locationFilter">Filter by Location:</label>
+          <p-dropdown 
+            id="locationFilter"
+            [options]="locations" 
+            [(ngModel)]="selectedLocation"
+            placeholder="All Locations"
+            (onChange)="applyFilters()">
+          </p-dropdown>
+        </div>
+        <div class="col-12 md:col-4">
+          <label for="searchFilter">Search:</label>
+          <p-inputText 
+            id="searchFilter"
+            [(ngModel)]="searchTerm"
+            placeholder="Search by name or email"
+            (input)="applyFilters()">
+          </p-inputText>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <p-table 
+      [value]="filteredRegistrations" 
+      [paginator]="true" 
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      styleClass="p-datatable-sm">
+      
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Disability Type</th>
+          <th>Location</th>
+          <th>Registration Date</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      
+      <ng-template pTemplate="body" let-registration>
+        <tr>
+          <td>{{ registration.personal_info.name }}</td>
+          <td>{{ registration.personal_info.email }}</td>
+          <td>{{ registration.disability_info.type }}</td>
+          <td>{{ registration.address.city }}, {{ registration.address.state }}</td>
+          <td>{{ registration.created_at | date:'short' }}</td>
+          <td>
+            <div class="action-buttons">
+              <p-button 
+                icon="pi pi-eye" 
+                styleClass="p-button-sm p-button-text"
+                (click)="viewRegistration(registration)"
+                pTooltip="View Details">
+              </p-button>
+              <p-button 
+                icon="pi pi-pencil" 
+                styleClass="p-button-sm p-button-text p-button-success"
+                (click)="editRegistration(registration)"
+                pTooltip="Edit">
+              </p-button>
+              <p-button 
+                icon="pi pi-trash" 
+                styleClass="p-button-sm p-button-text p-button-danger"
+                (click)="deleteRegistration(registration)"
+                pTooltip="Delete">
+              </p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6" class="text-center">No registrations found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <!-- View/Edit Dialog -->
+  <p-dialog 
+    [(visible)]="dialogVisible" 
+    [header]="isEditing ? 'Edit Registration' : 'View Registration'"
+    [modal]="true" 
+    [style]="{width: '50vw'}"
+    [draggable]="false" 
+    [resizable]="false">
+    
+    <div *ngIf="selectedRegistration">
+      <div class="grid">
+        <div class="col-12 md:col-6">
+          <h3>Personal Information</h3>
+          <div class="field">
+            <label>Name:</label>
+            <p-inputText [(ngModel)]="selectedRegistration.personal_info.name" [disabled]="!isEditing"></p-inputText>
+          </div>
+          <div class="field">
+            <label>Email:</label>
+            <p-inputText [(ngModel)]="selectedRegistration.personal_info.email" [disabled]="!isEditing"></p-inputText>
+          </div>
+          <div class="field">
+            <label>Phone:</label>
+            <p-inputText [(ngModel)]="selectedRegistration.personal_info.phone" [disabled]="!isEditing"></p-inputText>
+          </div>
+        </div>
+        
+        <div class="col-12 md:col-6">
+          <h3>Disability Information</h3>
+          <div class="field">
+            <label>Type:</label>
+            <p-dropdown [(ngModel)]="selectedRegistration.disability_info.type" [options]="disabilityTypes" [disabled]="!isEditing"></p-dropdown>
+          </div>
+          <div class="field">
+            <label>Severity:</label>
+            <p-dropdown [(ngModel)]="selectedRegistration.disability_info.severity" [options]="severityLevels" [disabled]="!isEditing"></p-dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <ng-template pTemplate="footer">
+      <p-button 
+        label="Cancel" 
+        icon="pi pi-times" 
+        (click)="closeDialog()" 
+        styleClass="p-button-text">
+      </p-button>
+      <p-button 
+        *ngIf="isEditing"
+        label="Save" 
+        icon="pi pi-check" 
+        (click)="saveRegistration()" 
+        styleClass="p-button-success">
+      </p-button>
+    </ng-template>
+  </p-dialog>
+
+  <!-- Confirmation Dialog -->
+  <p-confirmDialog></p-confirmDialog>
+</div> 

@@ -1,0 +1,119 @@
+<div class="schemes-list">
+  <div class="container">
+    <div class="header">
+      <h1>Government Schemes</h1>
+      <p>Available government schemes and support programs for persons with disabilities</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-section mb-4">
+      <label for="categoryFilter">Filter by Category:</label>
+      <p-dropdown 
+        id="categoryFilter"
+        [options]="categories" 
+        [(ngModel)]="selectedCategory"
+        placeholder="All Categories"
+        (onChange)="filterSchemes()">
+      </p-dropdown>
+    </div>
+
+    <!-- Schemes Grid -->
+    <div class="grid">
+      <div 
+        *ngFor="let scheme of filteredSchemes" 
+        class="col-12 md:col-6 lg:col-4">
+        <p-card 
+          [header]="scheme.title"
+          [subheader]="scheme.category"
+          styleClass="scheme-card">
+          
+          <ng-template pTemplate="header">
+            <div class="scheme-header">
+              <div class="scheme-icon">
+                <i [class]="scheme.icon"></i>
+              </div>
+              <div class="scheme-status">
+                <p-tag 
+                  [value]="scheme.status" 
+                  [severity]="getStatusSeverity(scheme.status)">
+                </p-tag>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="content">
+            <p class="scheme-description">{{ scheme.description }}</p>
+            
+            <div class="scheme-details">
+              <div class="detail-item">
+                <i class="pi pi-calendar"></i>
+                <span>Valid until: {{ scheme.validUntil | date:'mediumDate' }}</span>
+              </div>
+              <div class="detail-item">
+                <i class="pi pi-money-bill"></i>
+                <span>Amount: {{ scheme.amount }}</span>
+              </div>
+              <div class="detail-item">
+                <i class="pi pi-users"></i>
+                <span>Eligibility: {{ scheme.eligibility }}</span>
+              </div>
+            </div>
+
+            <div class="scheme-benefits" *ngIf="scheme.benefits?.length">
+              <h4>Key Benefits:</h4>
+              <ul>
+                <li *ngFor="let benefit of scheme.benefits">{{ benefit }}</li>
+              </ul>
+            </div>
+
+            <div class="scheme-requirements" *ngIf="scheme.requirements?.length">
+              <h4>Requirements:</h4>
+              <ul>
+                <li *ngFor="let requirement of scheme.requirements">{{ requirement }}</li>
+              </ul>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="footer">
+            <div class="card-footer">
+              <p-button 
+                *ngIf="scheme.applicationLink"
+                label="Apply Now" 
+                icon="pi pi-external-link"
+                styleClass="p-button-primary"
+                (click)="openApplication(scheme.applicationLink)">
+              </p-button>
+              <p-button 
+                *ngIf="scheme.detailsLink"
+                label="Learn More" 
+                icon="pi pi-info-circle"
+                styleClass="p-button-outlined"
+                (click)="openDetails(scheme.detailsLink)">
+              </p-button>
+              <p-button 
+                *ngIf="!scheme.applicationLink && !scheme.detailsLink"
+                label="Contact Department" 
+                icon="pi pi-envelope"
+                styleClass="p-button-outlined"
+                (click)="contactDepartment(scheme)">
+              </p-button>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="filteredSchemes.length === 0" class="empty-state">
+      <i class="pi pi-search" style="font-size: 3rem; color: var(--text-color-secondary);"></i>
+      <h3>No schemes found</h3>
+      <p>Try adjusting your filter criteria or contact us for more information.</p>
+      <p-button 
+        label="Clear Filters" 
+        icon="pi pi-refresh"
+        styleClass="p-button-outlined"
+        (click)="clearFilters()">
+      </p-button>
+    </div>
+  </div>
+</div> 

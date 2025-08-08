@@ -1,0 +1,86 @@
+<div class="register-container">
+  <div class="register-wrapper">
+    <p-card styleClass="register-card">
+      <ng-template pTemplate="header">
+        <div class="text-center p-4">
+          <h1 class="text-2xl font-bold text-primary">Create Account</h1>
+          <p class="text-gray-600 mt-2">Join Aadhar Sanstha today</p>
+        </div>
+      </ng-template>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-4">
+        <div class="field mb-4">
+          <label for="email" class="block text-sm font-medium mb-2">Email</label>
+          <input 
+            id="email"
+            type="email" 
+            pInputText 
+            formControlName="email"
+            placeholder="Enter your email"
+            class="w-full"
+            [class.ng-invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          <small 
+            class="text-red-500" 
+            *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+            Please enter a valid email address
+          </small>
+        </div>
+
+        <div class="field mb-4">
+          <label for="password" class="block text-sm font-medium mb-2">Password</label>
+          <p-password 
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+            [toggleMask]="true"
+            [feedback]="true"
+            class="w-full">
+          </p-password>
+          <small 
+            class="text-red-500" 
+            *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+            Password must be at least 6 characters
+          </small>
+        </div>
+
+        <div class="field mb-4">
+          <label for="confirmPassword" class="block text-sm font-medium mb-2">Confirm Password</label>
+          <p-password 
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm your password"
+            [toggleMask]="true"
+            [feedback]="false"
+            class="w-full">
+          </p-password>
+          <small 
+            class="text-red-500" 
+            *ngIf="registerForm.get('confirmPassword')?.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched">
+            Passwords do not match
+          </small>
+        </div>
+
+        <p-button 
+          type="submit"
+          label="Create Account"
+          [loading]="loading"
+          [disabled]="registerForm.invalid || loading"
+          class="w-full mb-3">
+        </p-button>
+
+        <p-divider></p-divider>
+
+        <div class="text-center mt-4">
+          <p class="text-gray-600">
+            Already have an account? 
+            <a routerLink="/auth/login" class="text-primary font-medium no-underline">
+              Sign in here
+            </a>
+          </p>
+        </div>
+      </form>
+    </p-card>
+  </div>
+
+  <p-toast></p-toast>
+</div> 

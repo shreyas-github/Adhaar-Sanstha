@@ -1,0 +1,102 @@
+{
+  "NAV": {
+    "PROGRAMS": "Programs",
+    "SCHEMES": "Schemes",
+    "PWD_REGISTRATION": "PWD Registration",
+    "ADMIN": "Admin",
+    "LOGIN": "Login"
+  },
+  "HOME": {
+    "HERO_TITLE": "Empowering Persons with Disabilities",
+    "HERO_SUBTITLE": "Comprehensive support, skill development, and inclusive programs for a better tomorrow",
+    "GET_STARTED": "Get Started",
+    "LEARN_MORE": "Learn More"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "Welcome Back",
+    "LOGIN_SUBTITLE": "Sign in to your account",
+    "REGISTER_TITLE": "Create Account",
+    "REGISTER_SUBTITLE": "Join Aadhar Sanstha today",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "SIGN_IN": "Sign In",
+    "CREATE_ACCOUNT": "Create Account",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "NO_ACCOUNT": "Don't have an account?",
+    "HAVE_ACCOUNT": "Already have an account?",
+    "SIGN_UP_HERE": "Sign up here",
+    "SIGN_IN_HERE": "Sign in here"
+  },
+  "PWD": {
+    "REGISTRATION_TITLE": "PWD Registration",
+    "PERSONAL_INFO": "Personal Information",
+    "DISABILITY_INFO": "Disability Information",
+    "EDUCATION": "Education",
+    "SKILLS_ADDRESS": "Skills & Address",
+    "DOCUMENTS": "Documents",
+    "NAME": "Name",
+    "PHONE": "Phone",
+    "DATE_OF_BIRTH": "Date of Birth",
+    "GENDER": "Gender",
+    "DISABILITY_TYPE": "Disability Type",
+    "SEVERITY": "Severity",
+    "DIAGNOSIS_DATE": "Diagnosis Date",
+    "EDUCATION_LEVEL": "Education Level",
+    "INSTITUTION": "Institution",
+    "YEAR_COMPLETED": "Year Completed",
+    "SKILLS": "Skills",
+    "STREET": "Street",
+    "CITY": "City",
+    "STATE": "State",
+    "PINCODE": "Pincode",
+    "GOVERNMENT_ID": "Government ID",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "SUBMIT": "Submit Registration"
+  },
+  "ADMIN": {
+    "DASHBOARD_TITLE": "Admin Dashboard",
+    "REGISTRATIONS": "Registrations",
+    "FILTERS": "Filters",
+    "DISABILITY_FILTER": "Disability Type",
+    "LOCATION_FILTER": "Location",
+    "EXPORT_CSV": "Export to CSV",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "SAVE": "Save",
+    "CANCEL": "Cancel"
+  },
+  "PROGRAMS": {
+    "TITLE": "Our Programs",
+    "SUBTITLE": "Comprehensive support and development programs for persons with disabilities"
+  },
+  "SCHEMES": {
+    "TITLE": "Government Schemes",
+    "SUBTITLE": "Available government schemes and support programs for PWDs",
+    "APPLY_NOW": "Apply Now",
+    "ELIGIBILITY": "Eligibility",
+    "BENEFITS": "Benefits"
+  },
+  "COMMON": {
+    "LOADING": "Loading...",
+    "SUCCESS": "Success",
+    "ERROR": "Error",
+    "WARNING": "Warning",
+    "INFO": "Information",
+    "CONFIRM": "Confirm",
+    "YES": "Yes",
+    "NO": "No",
+    "CLOSE": "Close",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "VIEW": "View",
+    "SEARCH": "Search",
+    "FILTER": "Filter",
+    "CLEAR": "Clear",
+    "SUBMIT": "Submit",
+    "RESET": "Reset"
+  }
+} 

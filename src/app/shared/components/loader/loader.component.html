@@ -1,0 +1,11 @@
+<div class="loader-container" *ngIf="loading">
+  <div class="loader-content">
+    <p-progressSpinner 
+      [style]="{width: getSpinnerSize()}" 
+      strokeWidth="4"
+      fill="var(--surface-ground)" 
+      animationDuration=".5s">
+    </p-progressSpinner>
+    <p class="loader-message mt-3">{{ message }}</p>
+  </div>
+</div> 

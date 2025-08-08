@@ -1,0 +1,111 @@
+<div class="programs-list">
+  <div class="container">
+    <div class="header">
+      <h1>Our Programs</h1>
+      <p>Comprehensive support programs designed to empower persons with disabilities</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-section mb-4">
+      <label for="categoryFilter">Filter by Category:</label>
+      <p-dropdown 
+        id="categoryFilter"
+        [options]="categories" 
+        [(ngModel)]="selectedCategory"
+        placeholder="All Categories"
+        (onChange)="filterPrograms()">
+      </p-dropdown>
+    </div>
+
+    <!-- Programs Grid -->
+    <div class="grid">
+      <div 
+        *ngFor="let program of filteredPrograms" 
+        class="col-12 md:col-6 lg:col-4">
+        <p-card 
+          [header]="program.title"
+          [subheader]="program.category"
+          styleClass="program-card">
+          
+          <ng-template pTemplate="header">
+            <img 
+              *ngIf="program.image" 
+              [src]="program.image" 
+              [alt]="program.title"
+              class="program-image">
+            <div 
+              *ngIf="!program.image" 
+              class="program-icon">
+              <i [class]="program.icon"></i>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="content">
+            <p class="program-description">{{ program.description }}</p>
+            
+            <div class="program-details">
+              <div class="detail-item">
+                <i class="pi pi-calendar"></i>
+                <span>{{ program.duration }}</span>
+              </div>
+              <div class="detail-item">
+                <i class="pi pi-map-marker"></i>
+                <span>{{ program.location }}</span>
+              </div>
+              <div class="detail-item">
+                <i class="pi pi-users"></i>
+                <span>{{ program.capacity }} participants</span>
+              </div>
+            </div>
+
+            <div class="program-features" *ngIf="program.features?.length">
+              <h4>Key Features:</h4>
+              <ul>
+                <li *ngFor="let feature of program.features">{{ feature }}</li>
+              </ul>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="footer">
+            <div class="card-footer">
+              <p-button 
+                *ngIf="program.registrationLink"
+                label="Register Now" 
+                icon="pi pi-external-link"
+                styleClass="p-button-primary"
+                (click)="openRegistration(program.registrationLink)">
+              </p-button>
+              <p-button 
+                *ngIf="program.detailsLink"
+                label="Learn More" 
+                icon="pi pi-info-circle"
+                styleClass="p-button-outlined"
+                (click)="openDetails(program.detailsLink)">
+              </p-button>
+              <p-button 
+                *ngIf="!program.registrationLink && !program.detailsLink"
+                label="Contact Us" 
+                icon="pi pi-envelope"
+                styleClass="p-button-outlined"
+                (click)="contactUs(program)">
+              </p-button>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="filteredPrograms.length === 0" class="empty-state">
+      <i class="pi pi-search" style="font-size: 3rem; color: var(--text-color-secondary);"></i>
+      <h3>No programs found</h3>
+      <p>Try adjusting your filter criteria or contact us for more information.</p>
+      <p-button 
+        label="Clear Filters" 
+        icon="pi pi-refresh"
+        styleClass="p-button-outlined"
+        (click)="clearFilters()">
+      </p-button>
+    </div>
+  </div>
+</div> 
