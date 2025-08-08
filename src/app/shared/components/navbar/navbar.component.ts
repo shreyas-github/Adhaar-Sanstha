@@ -43,8 +43,7 @@ export class NavbarComponent implements OnInit {
     {
       label: 'Sign Out',
       icon: 'pi pi-sign-out',
-      command: () => {}
-      // command: () => this.signOut()
+      command: () => this.signOut()
     }
   ];
 
