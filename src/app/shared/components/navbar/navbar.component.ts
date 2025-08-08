@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { SupabaseService } from '../../../core/services/supabase.service';
+import { TranslationLoaderService } from '../../../core/services/translation-loader.service';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { DropdownModule } from 'primeng/dropdown';
@@ -18,7 +19,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  currentUser$ = this.supabaseService.getCurrentUser();
+  // currentUser$ = this.supabaseService.getCurrentUser();
   languages = [
     { label: 'English', value: 'en' },
     { label: 'हिंदी', value: 'hi' },
@@ -42,28 +43,71 @@ export class NavbarComponent implements OnInit {
     {
       label: 'Sign Out',
       icon: 'pi pi-sign-out',
-      command: () => this.signOut()
+      command: () => {}
+      // command: () => this.signOut()
     }
   ];
 
   constructor(
     private translateService: TranslateService,
-    private supabaseService: SupabaseService
+    private translationLoader: TranslationLoaderService,
+    // private supabaseService: SupabaseService
   ) {}
 
   ngOnInit() {
+    // Set the selected language based on current language
+    const currentLang = this.translateService.currentLang || 'en';
     this.selectedLanguage = this.languages.find(lang => 
-      lang.value === this.translateService.currentLang
+      lang.value === currentLang
     ) || this.languages[0];
   }
 
   onLanguageChange(event: any) {
-    this.translateService.use(event.value);
+    if (event && event.value) {
+      const selectedLang = event.value;
+      
+      // Load translation file
+      this.translationLoader.getTranslation(selectedLang).subscribe(
+        (translations) => {
+          // Add translations to the service
+          this.translateService.setTranslation(selectedLang, translations, true);
+          // Switch to the selected language
+          this.translateService.use(selectedLang);
+          this.selectedLanguage = event;
+        },
+        (error) => {
+          console.error('Error loading translation:', error);
+          // Fallback to English
+          this.translateService.use('en');
+          this.selectedLanguage = this.languages[0];
+        }
+      );
+    } else if (event) {
+      // Handle case where event is the selected language object directly
+      const selectedLang = event.value;
+      
+      // Load translation file
+      this.translationLoader.getTranslation(selectedLang).subscribe(
+        (translations) => {
+          // Add translations to the service
+          this.translateService.setTranslation(selectedLang, translations, true);
+          // Switch to the selected language
+          this.translateService.use(selectedLang);
+          this.selectedLanguage = event;
+        },
+        (error) => {
+          console.error('Error loading translation:', error);
+          // Fallback to English
+          this.translateService.use('en');
+          this.selectedLanguage = this.languages[0];
+        }
+      );
+    }
   }
 
-  async signOut() {
-    await this.supabaseService.signOut();
-  }
+  // async signOut() {
+  //   await this.supabaseService.signOut();
+  // }
 
   toggleHighContrast() {
     document.body.classList.toggle('high-contrast');
