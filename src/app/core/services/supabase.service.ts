@@ -44,7 +44,7 @@ export class SupabaseService {
   constructor() {
     debugger
     this.supabase = createClient(environment.supabase.url, environment.supabase.anonKey);
-    this.initializeAuth();
+    // this.initializeAuth();
   }
 
   private async initializeAuth() {

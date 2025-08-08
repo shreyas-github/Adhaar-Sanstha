@@ -6,11 +6,7 @@
     </div>
 
     <!-- Progress Steps -->
-    <p-steps 
-      [model]="steps" 
-      [readonly]="false" 
-      [activeIndex]="currentStep"
-      styleClass="mb-4">
+    <p-steps [model]="steps" [readonly]="false" [activeIndex]="currentStep" styleClass="mb-4">
     </p-steps>
 
     <!-- Step 1: Personal Information -->
@@ -21,80 +17,57 @@
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="name">Full Name *</label>
-                <p-inputText 
-                  id="name"
-                  formControlName="name"
-                  placeholder="Enter your full name">
-                </p-inputText>
-                <small 
-                  *ngIf="personalInfoForm.get('name')?.invalid && personalInfoForm.get('name')?.touched"
+                <input type="text" formControlName="name" placeholder="Enter your full name" />
+                <small *ngIf="personalInfoForm.get('name')?.invalid && personalInfoForm.get('name')?.touched"
                   class="p-error">
                   Name is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="email">Email Address *</label>
-                <p-inputText 
-                  id="email"
-                  formControlName="email"
-                  placeholder="Enter your email address">
-                </p-inputText>
-                <small 
-                  *ngIf="personalInfoForm.get('email')?.invalid && personalInfoForm.get('email')?.touched"
+                <input type="text" formControlName="email" placeholder="Enter your email address" />
+
+                <small *ngIf="personalInfoForm.get('email')?.invalid && personalInfoForm.get('email')?.touched"
                   class="p-error">
                   Valid email is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="phone">Phone Number *</label>
-                <p-inputText 
-                  id="phone"
-                  formControlName="phone"
-                  placeholder="Enter your phone number">
-                </p-inputText>
-                <small 
-                  *ngIf="personalInfoForm.get('phone')?.invalid && personalInfoForm.get('phone')?.touched"
+                <input type="text" formControlName="phone" placeholder="Enter your phone number" />
+                <small *ngIf="personalInfoForm.get('phone')?.invalid && personalInfoForm.get('phone')?.touched"
                   class="p-error">
                   Phone number is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="dob">Date of Birth *</label>
-                <p-calendar 
-                  id="dob"
-                  formControlName="dateOfBirth"
-                  [showIcon]="true"
-                  dateFormat="dd/mm/yy"
+                <p-calendar id="dob" formControlName="dateOfBirth" [showIcon]="true" dateFormat="dd/mm/yy"
                   placeholder="Select date of birth">
                 </p-calendar>
-                <small 
+                <small
                   *ngIf="personalInfoForm.get('dateOfBirth')?.invalid && personalInfoForm.get('dateOfBirth')?.touched"
                   class="p-error">
                   Date of birth is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="gender">Gender *</label>
-                <p-dropdown 
-                  id="gender"
-                  formControlName="gender"
-                  [options]="genderOptions"
-                  placeholder="Select gender">
+                <p-dropdown id="gender" formControlName="gender" [options]="genderOptions" placeholder="Select gender">
                 </p-dropdown>
-                <small 
-                  *ngIf="personalInfoForm.get('gender')?.invalid && personalInfoForm.get('gender')?.touched"
+                <small *ngIf="personalInfoForm.get('gender')?.invalid && personalInfoForm.get('gender')?.touched"
                   class="p-error">
                   Gender is required
                 </small>
@@ -113,45 +86,34 @@
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="disabilityType">Disability Type *</label>
-                <p-dropdown 
-                  id="disabilityType"
-                  formControlName="type"
-                  [options]="disabilityTypes"
+                <p-dropdown id="disabilityType" formControlName="type" [options]="disabilityTypes"
                   placeholder="Select disability type">
                 </p-dropdown>
-                <small 
-                  *ngIf="disabilityInfoForm.get('type')?.invalid && disabilityInfoForm.get('type')?.touched"
+                <small *ngIf="disabilityInfoForm.get('type')?.invalid && disabilityInfoForm.get('type')?.touched"
                   class="p-error">
                   Disability type is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="severity">Severity Level *</label>
-                <p-dropdown 
-                  id="severity"
-                  formControlName="severity"
-                  [options]="severityLevels"
+                <p-dropdown id="severity" formControlName="severity" [options]="severityLevels"
                   placeholder="Select severity level">
                 </p-dropdown>
-                <small 
+                <small
                   *ngIf="disabilityInfoForm.get('severity')?.invalid && disabilityInfoForm.get('severity')?.touched"
                   class="p-error">
                   Severity level is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="diagnosisDate">Diagnosis Date</label>
-                <p-calendar 
-                  id="diagnosisDate"
-                  formControlName="diagnosisDate"
-                  [showIcon]="true"
-                  dateFormat="dd/mm/yy"
+                <p-calendar id="diagnosisDate" formControlName="diagnosisDate" [showIcon]="true" dateFormat="dd/mm/yy"
                   placeholder="Select diagnosis date">
                 </p-calendar>
               </div>
@@ -169,39 +131,30 @@
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="educationLevel">Education Level *</label>
-                <p-dropdown 
-                  id="educationLevel"
-                  formControlName="level"
-                  [options]="educationLevels"
+                <p-dropdown id="educationLevel" formControlName="level" [options]="educationLevels"
                   placeholder="Select education level">
                 </p-dropdown>
-                <small 
-                  *ngIf="educationForm.get('level')?.invalid && educationForm.get('level')?.touched"
+                <small *ngIf="educationForm.get('level')?.invalid && educationForm.get('level')?.touched"
                   class="p-error">
                   Education level is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="institution">Institution Name</label>
-                <p-inputText 
-                  id="institution"
-                  formControlName="institution"
-                  placeholder="Enter institution name">
-                </p-inputText>
+                <input id="institution" type="text" formControlName="institution"
+                  placeholder="Enter institution name" />
               </div>
             </div>
-            
+
             <div class="col-12 md:col-6">
               <div class="field">
                 <label for="yearCompleted">Year Completed</label>
-                <p-inputText 
-                  id="yearCompleted"
-                  formControlName="yearCompleted"
-                  placeholder="Enter year completed">
-                </p-inputText>
+
+                <input id="yearCompleted" formControlName="yearCompleted" placeholder="Enter year completed"/>
+                
               </div>
             </div>
           </div>
@@ -217,79 +170,58 @@
             <div class="col-12">
               <div class="field">
                 <label for="skills">Skills (Select all that apply)</label>
-                <p-multiSelect 
-                  id="skills"
-                  formControlName="skills"
-                  [options]="skillOptions"
-                  placeholder="Select skills"
+                <p-multiSelect id="skills" formControlName="skills" [options]="skillOptions" placeholder="Select skills"
                   [showClear]="true">
                 </p-multiSelect>
               </div>
             </div>
-            
+
             <div class="col-12">
               <h3>Address Information</h3>
             </div>
-            
+
             <div class="col-12">
               <div class="field">
                 <label for="street">Street Address *</label>
-                <p-inputText 
-                  id="street"
-                  formControlName="street"
-                  placeholder="Enter street address">
-                </p-inputText>
-                <small 
-                  *ngIf="skillsAddressForm.get('street')?.invalid && skillsAddressForm.get('street')?.touched"
+                <input id="street" formControlName="street" placeholder="Enter street address"/>
+              
+                <small *ngIf="skillsAddressForm.get('street')?.invalid && skillsAddressForm.get('street')?.touched"
                   class="p-error">
                   Street address is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-4">
               <div class="field">
                 <label for="city">City *</label>
-                <p-inputText 
-                  id="city"
-                  formControlName="city"
-                  placeholder="Enter city">
-                </p-inputText>
-                <small 
-                  *ngIf="skillsAddressForm.get('city')?.invalid && skillsAddressForm.get('city')?.touched"
+                <input id="city" formControlName="city" placeholder="Enter city"/>
+                
+                <small *ngIf="skillsAddressForm.get('city')?.invalid && skillsAddressForm.get('city')?.touched"
                   class="p-error">
                   City is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-4">
               <div class="field">
                 <label for="state">State *</label>
-                <p-dropdown 
-                  id="state"
-                  formControlName="state"
-                  [options]="stateOptions"
-                  placeholder="Select state">
+                <p-dropdown id="state" formControlName="state" [options]="stateOptions" placeholder="Select state">
                 </p-dropdown>
-                <small 
-                  *ngIf="skillsAddressForm.get('state')?.invalid && skillsAddressForm.get('state')?.touched"
+                <small *ngIf="skillsAddressForm.get('state')?.invalid && skillsAddressForm.get('state')?.touched"
                   class="p-error">
                   State is required
                 </small>
               </div>
             </div>
-            
+
             <div class="col-12 md:col-4">
               <div class="field">
                 <label for="pincode">Pincode *</label>
-                <p-inputText 
-                  id="pincode"
-                  formControlName="pincode"
-                  placeholder="Enter pincode">
-                </p-inputText>
-                <small 
-                  *ngIf="skillsAddressForm.get('pincode')?.invalid && skillsAddressForm.get('pincode')?.touched"
+                <input id="pincode" formControlName="pincode" placeholder="Enter pincode"/>
+             
+                <small *ngIf="skillsAddressForm.get('pincode')?.invalid && skillsAddressForm.get('pincode')?.touched"
                   class="p-error">
                   Pincode is required
                 </small>
@@ -308,26 +240,16 @@
             <div class="col-12">
               <div class="field">
                 <label for="governmentId">Government ID (Aadhar, PAN, etc.) *</label>
-                <p-fileUpload 
-                  id="governmentId"
-                  #fileUpload
-                  [customUpload]="true"
-                  [multiple]="false"
-                  [maxFileSize]="5000000"
-                  accept="image/*,.pdf"
-                  [auto]="true"
-                  chooseLabel="Choose File"
-                  uploadLabel="Upload"
-                  cancelLabel="Cancel"
-                  (uploadHandler)="onFileSelect($event)">
+                <p-fileUpload id="governmentId" #fileUpload [customUpload]="true" [multiple]="false"
+                  [maxFileSize]="5000000" accept="image/*,.pdf" [auto]="true" chooseLabel="Choose File"
+                  uploadLabel="Upload" cancelLabel="Cancel" (uploadHandler)="onFileSelect($event)">
                   <ng-template pTemplate="content">
                     <ul *ngIf="selectedFile">
                       <li>{{ selectedFile.name }} - {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} MB</li>
                     </ul>
                   </ng-template>
                 </p-fileUpload>
-                <small 
-                  *ngIf="documentsForm.get('governmentId')?.invalid && documentsForm.get('governmentId')?.touched"
+                <small *ngIf="documentsForm.get('governmentId')?.invalid && documentsForm.get('governmentId')?.touched"
                   class="p-error">
                   Government ID is required
                 </small>
@@ -341,60 +263,37 @@
     <!-- Navigation Buttons -->
     <div class="step-navigation">
       <div class="flex justify-content-between">
-        <p-button 
-          *ngIf="currentStep > 0"
-          label="Previous" 
-          icon="pi pi-chevron-left"
-          styleClass="p-button-outlined"
+        <p-button *ngIf="currentStep > 0" label="Previous" icon="pi pi-chevron-left" styleClass="p-button-outlined"
           (click)="previousStep()">
         </p-button>
-        
+
         <div *ngIf="currentStep < 4">
-          <p-button 
-            label="Next" 
-            icon="pi pi-chevron-right"
-            iconPos="right"
-            styleClass="p-button-primary"
-            [disabled]="!isCurrentStepValid()"
-            (click)="nextStep()">
+          <p-button label="Next" icon="pi pi-chevron-right" iconPos="right" styleClass="p-button-primary"
+            [disabled]="!isCurrentStepValid()" (click)="nextStep()">
           </p-button>
         </div>
-        
-        <p-button 
-          *ngIf="currentStep === 4"
-          label="Submit Registration" 
-          icon="pi pi-check"
-          styleClass="p-button-success"
-          [loading]="submitting"
-          [disabled]="!isCurrentStepValid()"
-          (click)="submitRegistration()">
+
+        <p-button *ngIf="currentStep === 4" label="Submit Registration" icon="pi pi-check" styleClass="p-button-success"
+          [loading]="submitting" [disabled]="!isCurrentStepValid()" (click)="submitRegistration()">
         </p-button>
       </div>
     </div>
   </div>
 
   <!-- Success Dialog -->
-  <p-dialog 
-    [(visible)]="showSuccessDialog" 
-    header="Registration Successful"
-    [modal]="true" 
-    [style]="{width: '400px'}"
-    [draggable]="false" 
-    [resizable]="false">
-    
+  <p-dialog [(visible)]="showSuccessDialog" header="Registration Successful" [modal]="true" [style]="{width: '400px'}"
+    [draggable]="false" [resizable]="false">
+
     <div class="text-center">
       <i class="pi pi-check-circle" style="font-size: 3rem; color: var(--green-500);"></i>
       <h3>Thank you for your registration!</h3>
-      <p>Your PWD registration has been submitted successfully. We will review your information and contact you soon.</p>
+      <p>Your PWD registration has been submitted successfully. We will review your information and contact you soon.
+      </p>
     </div>
-    
+
     <ng-template pTemplate="footer">
-      <p-button 
-        label="OK" 
-        icon="pi pi-check"
-        styleClass="p-button-primary"
-        (click)="closeSuccessDialog()">
+      <p-button label="OK" icon="pi pi-check" styleClass="p-button-primary" (click)="closeSuccessDialog()">
       </p-button>
     </ng-template>
   </p-dialog>
-</div> 
+</div>

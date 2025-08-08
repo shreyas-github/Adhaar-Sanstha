@@ -18,7 +18,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  currentUser$ = this.supabaseService.getCurrentUser();
+  // currentUser$ = this.supabaseService.getCurrentUser();
   languages = [
     { label: 'English', value: 'en' },
     { label: 'हिंदी', value: 'hi' },
@@ -42,13 +42,14 @@ export class NavbarComponent implements OnInit {
     {
       label: 'Sign Out',
       icon: 'pi pi-sign-out',
-      command: () => this.signOut()
+      // command: () => this.signOut()
+      command: () => {}
     }
   ];
 
   constructor(
     private translateService: TranslateService,
-    private supabaseService: SupabaseService
+    // private supabaseService: SupabaseService
   ) {}
 
   ngOnInit() {
@@ -61,9 +62,9 @@ export class NavbarComponent implements OnInit {
     this.translateService.use(event.value);
   }
 
-  async signOut() {
-    await this.supabaseService.signOut();
-  }
+  // async signOut() {
+  //   await this.supabaseService.signOut();
+  // }
 
   toggleHighContrast() {
     document.body.classList.toggle('high-contrast');
